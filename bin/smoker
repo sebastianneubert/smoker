@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-use Symfony\Component\Console\Application;
+use sebb\smoker\Cli\Application;
 
 const APP_ROOT = __DIR__ . '/..';
 const APP_NAME = 'smoker';
