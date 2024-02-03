@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+<?php
+
+use Symfony\Component\Console\Application;
+
+const APP_ROOT = __DIR__ . '/..';
+const APP_NAME = 'smoker';
+const APP_VERSION = '0.1.0';
+
+require_once APP_ROOT . '/vendor/autoload.php';
+
+$app = new Application(APP_NAME, APP_VERSION);
+$app->run();
