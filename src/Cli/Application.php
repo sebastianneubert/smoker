@@ -1,7 +1,8 @@
 <?php
 
-namespace sebb\smoker\Cli;
+namespace App\Cli;
 
+use App\Cli\Command\ScanCommand;
 use Symfony\Component\Console\Formatter\OutputFormatter;
 use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 use Symfony\Component\Console\Input\InputInterface;
@@ -21,7 +22,7 @@ class Application extends \Symfony\Component\Console\Application
     public function run(InputInterface $input = null, OutputInterface $output = null): int
     {
         if (null === $output) {
-            $styles = array();
+            $styles = [];
             $styles['failure'] = new OutputFormatterStyle('red');
             $formatter = new OutputFormatter(false, $styles);
             $output = new ConsoleOutput(OutputInterface::VERBOSITY_NORMAL, null, $formatter);
@@ -44,7 +45,10 @@ class Application extends \Symfony\Component\Console\Application
     /**
      * Initializes all the commands.
      */
-    private function registerCommands()
+    private function registerCommands(): void
     {
+        $this->addCommands([
+            new ScanCommand(),
+        ]);
     }
 }
